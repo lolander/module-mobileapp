@@ -10,6 +10,7 @@ jobs:
       RN_PROJECT_DIR: ${{ github.workspace }}/app/MobileTerminal
       IOS_PATH: ${{ github.workspace }}/app/MobileTerminal/ios
       EXPORT_OPTIONS_PLIST: ${{ github.workspace }}/app/MobileTerminal/ExportOptions.plist
+      TEAM_ID: PH3NYM9WJ6
 
     steps:
     - name: Checkout code
@@ -51,7 +52,7 @@ jobs:
 
         # Archive the app
         ARCHIVE_PATH="${BUILD_OUTPUT_DIR}/${APP_NAME}.xcarchive"
-        xcodebuild archive -workspace "${IOS_PATH}/${APP_NAME}.xcworkspace" -scheme "${APP_NAME}" -archivePath "${ARCHIVE_PATH}" || exit 1
+        xcodebuild archive -workspace "${IOS_PATH}/${APP_NAME}.xcworkspace" -scheme "${APP_NAME}" -archivePath "${ARCHIVE_PATH}" CODE_SIGN_IDENTITY="Apple Development" DEVELOPMENT_TEAM="${TEAM_ID}" || exit 1
 
         # Export the archive to an .ipa file
         EXPORT_PATH="${BUILD_OUTPUT_DIR}"
