@@ -24,7 +24,7 @@ jobs:
       run: npm install
       working-directory: app/MobileTerminal
 
-        - name: Install CocoaPods
+    - name: Install CocoaPods
           run: |
             set -e
             gem install cocoapods
