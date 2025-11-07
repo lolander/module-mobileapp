@@ -47,11 +47,11 @@ jobs:
         cd "$IOS_PROJECT_DIR"
 
         # Clean the build folder
-        xcodebuild clean -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" || exit 1
+        xcodebuild clean -workspace "${IOS_PATH}/${APP_NAME}.xcworkspace" -scheme "${APP_NAME}" || exit 1
 
         # Archive the app
-        ARCHIVE_PATH="$BUILD_OUTPUT_DIR/$APP_NAME.xcarchive"
-        xcodebuild archive -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" -archivePath "$ARCHIVE_PATH" || exit 1
+        ARCHIVE_PATH="${BUILD_OUTPUT_DIR}/${APP_NAME}.xcarchive"
+        xcodebuild archive -workspace "${IOS_PATH}/${APP_NAME}.xcworkspace" -scheme "${APP_NAME}" -archivePath "${ARCHIVE_PATH}" || exit 1
 
         # Export the archive to an .ipa file
         EXPORT_PATH="$BUILD_OUTPUT_DIR"
