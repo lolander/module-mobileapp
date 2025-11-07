@@ -35,6 +35,9 @@ jobs:
         IOS_PATH: ${{ github.workspace }}/app/MobileTerminal/ios
         EXPORT_OPTIONS_PLIST: ${{ github.workspace }}/app/MobileTerminal/ExportOptions.plist
       run: |
+        RN_PROJECT_DIR="$GITHUB_WORKSPACE/app/MobileTerminal"
+        IOS_PROJECT_DIR="$RN_PROJECT_DIR/ios"
+        EXPORT_OPTIONS_PLIST="$RN_PROJECT_DIR/ExportOptions.plist"
         BUILD_OUTPUT_DIR="$GITHUB_WORKSPACE/builds"
         APP_NAME="MobileTerminal"
 
