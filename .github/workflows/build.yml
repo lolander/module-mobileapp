@@ -26,6 +26,9 @@ jobs:
         pod install
       working-directory: app/MobileTerminal/ios
 
+    - name: Print ExportOptions.plist content
+      run: cat "$EXPORT_OPTIONS_PLIST"
+
     - name: Archive and Export iOS App
       run: |
         RN_PROJECT_DIR="$GITHUB_WORKSPACE/app/MobileTerminal"
