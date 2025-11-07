@@ -51,7 +51,7 @@ jobs:
         echo "iOS app built and exported to $EXPORT_PATH/$APP_NAME.ipa"
 
     - name: Upload IPA as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: MobileTerminal-IPA
         path: ${{ github.workspace }}/builds/MobileTerminal.ipa
